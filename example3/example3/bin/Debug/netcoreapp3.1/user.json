@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 2,
+    "Name": "kolya",
+    "Age": 22,
+    "Car": "BMW"
+  },
+  {
+    "Id": 3,
+    "Name": "joja",
+    "Age": 34,
+    "Car": "Volkswagen"
+  },
+  {
+    "Id": 4,
+    "Name": "mikola",
+    "Age": 34,
+    "Car": "Volkswagen"
+  },
+  {
+    "Id": 5,
+    "Name": "ilya",
+    "Age": 67,
+    "Car": "BMW"
+  },
+  {
+    "Id": 6,
+    "Name": "jorj",
+    "Age": 89,
+    "Car": "Skoda"
+  }
+]
