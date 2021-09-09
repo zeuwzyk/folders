@@ -13,13 +13,13 @@ namespace example3
         public int Age { get; set; }
         public string Car { get; set; }
     }
-    class Program//sotrudniki!
+    class Program
     {
         enum Cars
         {
-            BMW,
-            Volkswagen,
-            Skoda
+            bmw,
+            volkswagen,
+            skoda
         }
         static void Main(string[] args)
         {
@@ -66,6 +66,7 @@ namespace example3
                 axualiryValue = 0;
                 Console.Write("Enter name: ");
                 name = Console.ReadLine();
+                name = name.ToLower();
                 if (name == "")
                     Console.WriteLine("Not correct.");
                 for (int i = 0; i < name.Length; i++)
@@ -89,20 +90,21 @@ namespace example3
 
                 Console.Write("Enter car (BMW, Volkswagen, Skoda): ");
                 string theCar = Console.ReadLine();
+                theCar = theCar.ToLower();
                 Cars car;
                 if (Enum.TryParse(theCar, out car))// шрифты
                 {
                     switch (car)
                     {
-                        case Cars.BMW:
+                        case Cars.bmw:
                             Console.WriteLine("Your car is BMW.");
                             carCar = theCar;
                             break;
-                        case Cars.Volkswagen:
+                        case Cars.volkswagen:
                             Console.WriteLine("Your car is Volkswagen.");
                             carCar = theCar;
                             break;
-                        case Cars.Skoda:
+                        case Cars.skoda:
                             Console.WriteLine("Your car is Skoda.");
                             carCar = theCar;
                             break;
@@ -133,6 +135,7 @@ namespace example3
         {
             Console.Write("\nFind employee (enter name or age or car (BMW, Volkswagen, Skoda)): ");
             string information = Console.ReadLine();
+            information = information.ToLower();
             int age = 0, check = 0, ages = 0, axualiryValue = 0;
             string name = "", car = "";
 
@@ -179,6 +182,7 @@ namespace example3
         {
             Console.Write("\nDelete employee (enter name): ");
             string information = Console.ReadLine();
+            information = information.ToLower();
             string name = "";
             int axualiryValue = 0;
 
