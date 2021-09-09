@@ -16,7 +16,7 @@ namespace example2
 
                 Console.Write("\nMenu:\nCommands:\n f - find word\n r - replace word\n " +
                     "d - delete word\n s - second menu\n 0 - exit\n");
-                Console.Write("\nEnter the command: ");
+                Console.Write("Enter the command: ");
                 selection = Console.ReadLine();
 
                 Console.Write("Enter the word from text for command: ");
@@ -110,7 +110,7 @@ namespace example2
             string replaceWord = Console.ReadLine();
 
             if (word == null || replaceWord == null || word == "" || replaceWord == "")
-                Console.WriteLine("Please write correct word.");
+                Console.WriteLine("Please, write correct word.");
             else
                 text = CheckFunction(word, replaceWord, text);
             return text;
@@ -138,7 +138,7 @@ namespace example2
                         text = text.Replace(firstWord, secondWord);
                         checkErorr++;
                     }
-                    else if (words.Length - 1 == i && checkErorr > 0)//выскакивает=<
+                    else if (words.Length - 1 == i && checkErorr > 0)
                     {
                         Console.WriteLine("Not correct start word was entered.");
                         break;
@@ -148,7 +148,7 @@ namespace example2
             } while (temp < 1);
             return text;
         }
-        static string CheckFilePath(string text, string path)//переименовать
+        static string CheckFilePath(string text, string path)
         {
             try
             {
@@ -167,7 +167,7 @@ namespace example2
         static string EnterFilePath(string text, string path)
         {
             string check = path;
-            Console.Write("Enter the path to *.txt file (only english text): ");
+            Console.Write("\nEnter the path to *.txt file (only english text): ");
             path = Console.ReadLine();
             text = CheckFilePath(text, path);
 
@@ -178,7 +178,7 @@ namespace example2
         }
         static void ChangeOpenFileHelper(string text)
         {
-            Console.Write("Do you want /work with file/(y/n): ");
+            Console.Write("\nDo you want something do with file? (y/n): ");
             string changeWorkWithFile = Console.ReadLine();
             if (changeWorkWithFile == "y")
                 FileHelper(text, "");
@@ -192,15 +192,15 @@ namespace example2
             string selection = "";
             while (selection != "q")
             {
-                Console.Write("\nMenu for file work:\nCommands:\n v - view text from file\n r - record text in file\n " +
-               "rw - rerecord text in file\n d - delete text from file or file\n c - create new file" +
+                Console.Write("\nMenu for file work:\nCommands:\n v - view text from file\n r - record text (new text) in file\n " +
+               "rw - rerecord text (with changed) in file\n d - delete text from file or file\n c - create new file" +
                "\n q - exit from menu\n 0 - exit from program\n");
                 Console.Write("Enter the command: ");
                 selection = Console.ReadLine();
                 switch (selection)
                 {
                     case "v":
-                        Console.WriteLine("View text.");
+                        Console.WriteLine("\nView text.");
                         if (text == "" || text == null)
                             Console.WriteLine("No text for work. Please enter path for file.");
                         else
@@ -208,7 +208,7 @@ namespace example2
                         break;
 
                     case "r":
-                        Console.Write("Record NEW TEXT (not replaced/deleted word at text) in end file(1) or record all file(2)?\nHow do you want record? (1/2): ");
+                        Console.Write("\nRecord NEW TEXT in end file(1) or record all file(2)?\nHow do you want record? (1/2): ");
                         string changeRecordMenu = Console.ReadLine();
                         path = EnterFilePath(text, "FileHelper");
 
@@ -230,7 +230,7 @@ namespace example2
                         break;
 
                     case "rw":
-                        Console.WriteLine("Rerecord text from file.");
+                        Console.WriteLine("\nRerecord text from file.");
                         path = EnterFilePath(text, "FileHelper");
 
                         if (text == "" || text == null)
@@ -240,7 +240,7 @@ namespace example2
                         break;
 
                     case "d":
-                        Console.Write("Delete text from file(1) or file(2)?\nWhat do you want delete? (1/2): ");
+                        Console.Write("\nDelete text from file(1) or file(2)?\nWhat do you want delete? (1/2): ");
                         string changeDeleteMenu = Console.ReadLine();
                         path = EnterFilePath(text, "FileHelper");
 
@@ -251,7 +251,7 @@ namespace example2
                         break;
 
                     case "c":
-                        Console.Write("Create new file.\nEnter file name: ");
+                        Console.Write("\nCreate new file.\nEnter file name: ");
                         string nameFile = Console.ReadLine();
                         nameFile += ".txt";
                         nameFile = "..\\..\\..\\" + nameFile;
@@ -259,15 +259,15 @@ namespace example2
                         break;
 
                     case "0":
-                        Console.WriteLine("Exit.");
+                        Console.WriteLine("\nExit.");
                         Environment.Exit(1);
                         break;
                     case "q":
-                        Console.WriteLine("Exit from menu for file work.");
+                        Console.WriteLine("\nExit from menu for file work.");
                         break;
 
                     default:
-                        Console.WriteLine("Error. Not correct symbol was entered.");
+                        Console.WriteLine("\nError. Not correct symbol was entered.");
                         break;
                 }
             }
