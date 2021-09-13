@@ -1,0 +1,13 @@
+D:\Projects\example3\FileHelper\bin\Debug\netcoreapp3.1\FileHelper.deps.json
+D:\Projects\example3\FileHelper\bin\Debug\netcoreapp3.1\FileHelper.dll
+D:\Projects\example3\FileHelper\bin\Debug\netcoreapp3.1\FileHelper.pdb
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.csproj.AssemblyReference.cache
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.AssemblyInfoInputs.cache
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.AssemblyInfo.cs
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.csproj.CoreCompileInputs.cache
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.csproj.CopyComplete
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.dll
+D:\Projects\example3\FileHelper\obj\Debug\netcoreapp3.1\FileHelper.pdb
+D:\Projects\example3\FileHelper\bin\Debug\netcoreapp3.1\EmployeeData.dll
+D:\Projects\example3\FileHelper\bin\Debug\netcoreapp3.1\EmployeeData.pdb

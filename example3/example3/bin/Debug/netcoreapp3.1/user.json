@@ -18,12 +18,6 @@
     "Car": "volkswagen"
   },
   {
-    "Id": 5,
-    "Name": "ilya",
-    "Age": 67,
-    "Car": "bmw"
-  },
-  {
     "Id": 6,
     "Name": "jorj",
     "Age": 89,
@@ -33,6 +27,18 @@
     "Id": 7,
     "Name": "jeka",
     "Age": 78,
+    "Car": "skoda"
+  },
+  {
+    "Id": 8,
+    "Name": "tolik",
+    "Age": 45,
+    "Car": "volkswagen"
+  },
+  {
+    "Id": 9,
+    "Name": "vanya",
+    "Age": 21,
     "Car": "skoda"
   }
 ]
