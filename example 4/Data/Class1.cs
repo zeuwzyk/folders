@@ -1,7 +1,10 @@
-﻿using System;
-
-namespace Data
-{
+﻿namespace Data
+{    enum Cars
+    {
+        bmw,
+        volkswagen,
+        skoda
+    }
     public class DataClass
     {
         public int Id { get; set; }

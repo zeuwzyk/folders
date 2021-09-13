@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/Data.dll": {}
         }
+      },
+      "File/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/File.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/File.dll": {}
+        }
       }
     }
   },
@@ -19,11 +32,16 @@
       "type": "project",
       "path": "../Data/Data.csproj",
       "msbuildProject": "../Data/Data.csproj"
+    },
+    "File/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibrary1/File.csproj",
+      "msbuildProject": "../ClassLibrary1/File.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Data >= 1.0.0"
+      "File >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -53,8 +71,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Projects\\example 4\\Data\\Data.csproj": {
-              "projectPath": "D:\\Projects\\example 4\\Data\\Data.csproj"
+            "D:\\Projects\\example 4\\ClassLibrary1\\File.csproj": {
+              "projectPath": "D:\\Projects\\example 4\\ClassLibrary1\\File.csproj"
             }
           }
         }

@@ -17,3 +17,5 @@ D:\Projects\example 4\example 4\obj\Debug\netcoreapp3.1\example 4.genruntimeconf
 D:\Projects\example 4\example 4\bin\Debug\netcoreapp3.1\Data.dll
 D:\Projects\example 4\example 4\bin\Debug\netcoreapp3.1\Data.pdb
 D:\Projects\example 4\example 4\obj\Debug\netcoreapp3.1\example 4.csproj.CopyComplete
+D:\Projects\example 4\example 4\bin\Debug\netcoreapp3.1\File.dll
+D:\Projects\example 4\example 4\bin\Debug\netcoreapp3.1\File.pdb
