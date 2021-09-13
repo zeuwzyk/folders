@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EmployeeClass
+﻿namespace EmployeeClass
 {
     public enum Cars
     {

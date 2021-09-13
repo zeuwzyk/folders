@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using FileHelper;
 
 namespace example3
@@ -8,7 +7,6 @@ namespace example3
     {        
         static void Main(string[] args)
         {
-            ArrayList list = new ArrayList();
             string selection = "";
             while (selection != "0")
             {
