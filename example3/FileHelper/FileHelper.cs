@@ -133,16 +133,11 @@ namespace FileHelper
             {
                 nameEmployee = data.Name.ToString();
                 if (information == nameEmployee)
-                {
                     restoredData.Remove(data);
-                    axualiryValue++;
-                    break;
-                }
-                else if (information != nameEmployee && axualiryValue == 3)
-                {
+                else if (information != nameEmployee && axualiryValue < restoredData.Count - 1)
                     Console.WriteLine("Name not found.\n");
-                    break;
-                }
+                else
+                    axualiryValue++;
             }
             foreach (var data in restoredData)       
                 Console.WriteLine($"{JsonSerializer.Serialize(data).Replace("{", "").Replace("}", "")}");
