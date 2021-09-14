@@ -134,7 +134,7 @@ namespace FileHelper
                 nameEmployee = data.Name.ToString();
                 if (information == nameEmployee)
                     restoredData.Remove(data);
-                else if (information != nameEmployee && axualiryValue < restoredData.Count - 1)
+                else if (information != nameEmployee && axualiryValue == restoredData.Count - 1)
                     Console.WriteLine("Name not found.\n");
                 else
                     axualiryValue++;
