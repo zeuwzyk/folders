@@ -1,9 +1,0 @@
-D:\Projects\example3\EmployeeClass\bin\Debug\netcoreapp3.1\EmployeeClass.deps.json
-D:\Projects\example3\EmployeeClass\bin\Debug\netcoreapp3.1\EmployeeClass.dll
-D:\Projects\example3\EmployeeClass\bin\Debug\netcoreapp3.1\EmployeeClass.pdb
-D:\Projects\example3\EmployeeClass\obj\Debug\netcoreapp3.1\EmployeeClass.GeneratedMSBuildEditorConfig.editorconfig
-D:\Projects\example3\EmployeeClass\obj\Debug\netcoreapp3.1\EmployeeClass.AssemblyInfoInputs.cache
-D:\Projects\example3\EmployeeClass\obj\Debug\netcoreapp3.1\EmployeeClass.AssemblyInfo.cs
-D:\Projects\example3\EmployeeClass\obj\Debug\netcoreapp3.1\EmployeeClass.csproj.CoreCompileInputs.cache
-D:\Projects\example3\EmployeeClass\obj\Debug\netcoreapp3.1\EmployeeClass.dll
-D:\Projects\example3\EmployeeClass\obj\Debug\netcoreapp3.1\EmployeeClass.pdb
