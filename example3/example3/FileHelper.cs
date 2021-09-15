@@ -5,12 +5,12 @@ using System.Text.Json;
 
 namespace example3
 {
-    static class FileHelper//статик  разобраться
+    static class FileHelper
     {        
         public static void CreateDeleteFile()
         {
             string selection;
-            int checkValue = 0;//**
+            int checkValue;
 
             do
             {
@@ -20,6 +20,7 @@ namespace example3
                 if (selection == "c")
                 {
                     Console.Write("Create new file.\nEnter file name: ");
+
                     string nameFile = Console.ReadLine();
                     nameFile += ".json";
                     File.Create(nameFile);
@@ -54,12 +55,14 @@ namespace example3
                 Console.WriteLine("\n");
             } while (checkValue==0);
         }
+
         public static List<Employee> OpenFile(string fileName)
         {
             string jsonString = File.ReadAllText(fileName);
             List<Employee> restoredData = JsonSerializer.Deserialize<List<Employee>>(jsonString);
            return restoredData;
         }
+
         public static void SaveFile(string nameEmployee, int ageEmployee, string carEmployee, string fileName)
         {
             int id = 1;

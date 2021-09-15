@@ -206,11 +206,6 @@ namespace example3
                 countValue = 0;
             } while (checkValue == 0);
 
-            foreach (var data in restoredData)
-            {
-                Console.WriteLine($"{JsonSerializer.Serialize(data).Replace("{", "").Replace("}", "")}");
-            }
-
             var options = new JsonSerializerOptions
             {
                 AllowTrailingCommas = true,
