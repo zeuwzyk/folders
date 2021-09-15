@@ -10,29 +10,6 @@
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
-      },
-      "EmployeeData/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/EmployeeData.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EmployeeData.dll": {}
-        }
-      },
-      "FileHelper/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "EmployeeData": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/FileHelper.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/FileHelper.dll": {}
-        }
       }
     }
   },
@@ -63,21 +40,10 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
-    },
-    "EmployeeData/1.0.0": {
-      "type": "project",
-      "path": "../EmployeeClass/EmployeeData.csproj",
-      "msbuildProject": "../EmployeeClass/EmployeeData.csproj"
-    },
-    "FileHelper/1.0.0": {
-      "type": "project",
-      "path": "../FileHelper/FileHelper.csproj",
-      "msbuildProject": "../FileHelper/FileHelper.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "FileHelper >= 1.0.0",
       "Newtonsoft.Json >= 13.0.1"
     ]
   },
@@ -107,11 +73,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "D:\\Projects\\example3\\FileHelper\\FileHelper.csproj": {
-              "projectPath": "D:\\Projects\\example3\\FileHelper\\FileHelper.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

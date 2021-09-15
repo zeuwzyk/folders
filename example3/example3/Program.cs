@@ -1,5 +1,4 @@
 ﻿using System;
-using FileHelper;
 
 namespace example3
 {  
@@ -7,29 +6,34 @@ namespace example3
     {        
         static void Main(string[] args)
         {
+            Console.Write("Enter name of existing file for work: ");
+            string fileName = Console.ReadLine();
+            fileName += ".json";
+
             string selection = "";
+
             while (selection != "0")
             {
-                Console.Write("Menu:\nCommands:\n e - enter data\n v - view data\n f - find data\n " +
+                Console.Write("\nMenu:\nCommands:\n e - enter data\n v - view data\n f - find data\n " +
                     "d - delete data\n cd - create or delete file\n 0 - exit\n");
                 Console.Write("Enter the command: ");
                 selection = Console.ReadLine();
                 switch (selection)
                 {
                     case "e":
-                        FileClass.EnterData();
+                        FileManager.EnterData(fileName);
                         break;
                     case "v":
-                        FileClass.ViewData();
+                        FileManager.ViewData(fileName);
                         break;
                     case "f":
-                        FileClass.FindData();
+                        FileManager.FindData(fileName);
                         break;
                     case "d":
-                        FileClass.DeleteData();
+                        FileManager.DeleteData(fileName);
                         break;
                     case "cd":
-                        FileClass.CreateDeleteFile();
+                        FileHelper.CreateDeleteFile();
                         break;
                     case "0":
                         Console.WriteLine("\nExit.");

@@ -14,7 +14,3 @@ D:\Projects\example3\example3\obj\Debug\netcoreapp3.1\example3.pdb
 D:\Projects\example3\example3\obj\Debug\netcoreapp3.1\example3.genruntimeconfig.cache
 D:\Projects\example3\example3\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Projects\example3\example3\obj\Debug\netcoreapp3.1\example3.csproj.CopyComplete
-D:\Projects\example3\example3\bin\Debug\netcoreapp3.1\FileHelper.dll
-D:\Projects\example3\example3\bin\Debug\netcoreapp3.1\FileHelper.pdb
-D:\Projects\example3\example3\bin\Debug\netcoreapp3.1\EmployeeData.dll
-D:\Projects\example3\example3\bin\Debug\netcoreapp3.1\EmployeeData.pdb
