@@ -8,7 +8,7 @@ namespace example3
         {
             Console.Write("Enter name of existing file for work: ");
             string fileName = Console.ReadLine();
-            fileName += ".json";
+            fileName += ".json";//enter user 
 
             string selection = "";
 
