@@ -57,7 +57,7 @@ namespace example4_a
 
         public static string fileName = "";
 
-        public static string Open(int checkValue)
+        public static string OpenFile(int checkValue)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {

@@ -65,12 +65,12 @@ namespace example4_a
         {
             employeeGridView.Rows.Clear();
 
-            string fileName = FileHelper.Open(1);
+            string fileName = FileHelper.OpenFile(1);
 
             InitializationValueGrid(fileName);
         }
 
-        public void InitializationValueGrid(string fileName)//***
+        public void InitializationValueGrid(string fileName)
         {
             if (fileName.Contains(".json"))
             {
@@ -125,7 +125,7 @@ namespace example4_a
             }
         }
 
-        public void FillingGrid(int id, string nameEmployee, int ageEmployee, string carEmployee)//?? не могу из за грида вытащить
+        public void FillingGrid(int id, string nameEmployee, int ageEmployee, string carEmployee)
         {
             int rowNumber = employeeGridView.Rows.Add();
 
@@ -138,11 +138,11 @@ namespace example4_a
         private void ButtonFind(object sender, EventArgs e)
         {
             int axualiryValue = 0;
-            string fileName = FileHelper.Open(0);
+            string fileName = FileHelper.OpenFile(0);
 
             if (fileName == "")
             {
-                buttonOpen.PerformClick();//что с именем?
+                buttonOpen.PerformClick();
             }
 
             if (textBoxFindOrDelete.Text == "")
@@ -183,7 +183,7 @@ namespace example4_a
 
         private void ButtonDelete(object sender, EventArgs e)
         {
-            string fileName = FileHelper.Open(0);
+            string fileName = FileHelper.OpenFile(0);
 
             if (fileName == "")
             {
@@ -214,7 +214,7 @@ namespace example4_a
 
         private void TextBoxFindOrDelete_TextChanged(object sender, EventArgs e)
         {
-            string fileName = FileHelper.Open(0);
+            string fileName = FileHelper.OpenFile(0);
 
             if (fileName == "")
             {
