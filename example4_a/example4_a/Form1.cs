@@ -44,12 +44,12 @@ namespace example4_a
             textBoxNameEmployee.Text = string.Empty;
             comboBoxCarEmployee.Text = string.Empty;
 
-            if (nameEmployee != "" && carEmployee != "" && radioButtonJson.Checked)
+            if (!string.IsNullOrEmpty(nameEmployee) && !string.IsNullOrEmpty(carEmployee) && radioButtonJson.Checked)
             {
                 FileHelper.SaveFile(nameEmployee, ageEmployee, carEmployee, "json");
                 MessageBox.Show($"{nameEmployee} {numericAgeEmployee.Value} {carEmployee}", "Message");
             }
-            else if (nameEmployee != "" && carEmployee != "" && radioButtonXml.Checked)
+            else if (!string.IsNullOrEmpty(nameEmployee) && !string.IsNullOrEmpty(carEmployee) && radioButtonXml.Checked)
             {
                 FileHelper.SaveFile(nameEmployee, ageEmployee, carEmployee, "xml");
                 MessageBox.Show($"{nameEmployee} {numericAgeEmployee.Value} {carEmployee}", "Message");
@@ -139,14 +139,14 @@ namespace example4_a
             int checkValue = 0;
             string fileName = FileHelper.OpenFile(0);
 
-            if (fileName == null || fileName == "")
+            if (string.IsNullOrEmpty(fileName))
             {
                 buttonOpen.PerformClick();
             }
 
-            if (textBoxFindOrDelete.Text == "")
+            if (string.IsNullOrEmpty(textBoxFindOrDelete.Text))
             {
-                MessageBox.Show(null, "Please, enter information.", "Message");
+                MessageBox.Show("Please, enter information.", "Message");
             }
             else
             {
@@ -175,7 +175,7 @@ namespace example4_a
 
                 if (checkValue == 0)
                 {
-                    MessageBox.Show(null, "Information not found.", "Message");
+                    MessageBox.Show("Information not found.", "Message");
                 }
             }
         }
@@ -184,7 +184,7 @@ namespace example4_a
         {
             string fileName = FileHelper.OpenFile(0);
 
-            if (fileName == null || fileName == "")
+            if (string.IsNullOrEmpty(fileName))
             {
                 buttonOpen.PerformClick();
             }
@@ -192,9 +192,9 @@ namespace example4_a
             string nameFromTextBox = textBoxFindOrDelete.Text;
             nameFromTextBox = nameFromTextBox.ToLower();
 
-            if (textBoxFindOrDelete.Text == "" || textBoxFindOrDelete.Text == null)
+            if (string.IsNullOrEmpty(textBoxFindOrDelete.Text))
             {
-                MessageBox.Show(null, "Please, enter name.", "Message");
+                MessageBox.Show("Please, enter name.", "Message");
             }
             else
             {
@@ -220,7 +220,7 @@ namespace example4_a
         {
             string fileName = FileHelper.OpenFile(0);
 
-            if (fileName == null || fileName == "")
+            if (string.IsNullOrEmpty(fileName))
             {
                 buttonOpen.PerformClick();
             }
