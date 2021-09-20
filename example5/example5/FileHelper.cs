@@ -5,7 +5,7 @@ using System.Xml.Linq;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace example4_a
+namespace example5//много чего менять
 {
     static class FileHelper
     {

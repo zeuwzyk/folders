@@ -1,4 +1,4 @@
-﻿namespace example4_a
+﻿namespace example5
 {    enum Cars
     {
         bmw,
