@@ -40,11 +40,5 @@
     "Name": "fofan",
     "Age": 38,
     "Car": "bmw"
-  },
-  {
-    "Id": 13,
-    "Name": "jeka",
-    "Age": 65,
-    "Car": "skoda"
   }
 ]

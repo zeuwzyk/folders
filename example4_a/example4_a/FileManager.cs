@@ -10,69 +10,72 @@ namespace example4_a
 {
     static class FileManager
     {
-        public static void RemoveFromXml(string name, string fileName)
+        public static void RemoveFromFile(string name, string fileName, string checkValue)
         {
-            int checkValue = 0;
-            XDocument xdoc = XDocument.Load(fileName);
+            int testValue = 0;
 
-            foreach (XElement employeeData in xdoc.Element("root").Elements("employee").ToList())
+            if (checkValue == "json")
             {
-                if (employeeData.Element("name").Value == name)
+                string jsonString = File.ReadAllText(fileName);
+                var restoredData = JsonSerializer.Deserialize<List<DataEmployee>>(jsonString);
+
+                foreach (var data in restoredData.ToArray())
                 {
-                    employeeData.Remove();
+                    string nameEmployee = data.Name.ToString();
+                    if (name == nameEmployee)
+                    {
+                        restoredData.Remove(data);
+                        testValue = 1;
+                    }
+                    else if (testValue == restoredData.Count - 1)
+                    {
+                        MessageBox.Show("Name not found.", "Message");
+                        testValue = 0;
+                    }
+                    else
+                    {
+                        testValue++;
+                    }
                 }
-                else if (checkValue == xdoc.Element("root").Elements("employee").Count() - 1)
+
+                foreach (var data in restoredData)
                 {
-                    MessageBox.Show("Name not found.", "Message");
+                    Console.WriteLine($"{JsonSerializer.Serialize(data)}");
                 }
-                else
+
+                var options = new JsonSerializerOptions
                 {
-                    checkValue++;
+                    AllowTrailingCommas = true,
+                    WriteIndented = true
+                };
+
+                using (StreamWriter file = File.CreateText(fileName))
+                {
+                    string dataJson = JsonSerializer.Serialize(restoredData, options);
+                    file.Write(dataJson);
                 }
             }
-            xdoc.Save(fileName);
-        }
-
-        public static void RemoveFromJson(string name, string fileName)
-        {
-            int checkValue = 0;
-            string jsonString = File.ReadAllText(fileName);
-            var restoredData = JsonSerializer.Deserialize<List<DataEmployee>>(jsonString);
-
-            foreach (var data in restoredData.ToArray())
+            else
             {
-                string nameEmployee = data.Name.ToString();
-                if (name == nameEmployee)
+                XDocument docXml = XDocument.Load(fileName);
+
+                foreach (XElement employeeData in docXml.Element("root").Elements("employee").ToList())
                 {
-                    restoredData.Remove(data);
-                    checkValue = 1;
+                    if (employeeData.Element("name").Value == name)
+                    {
+                        employeeData.Remove();
+                    }
+                    else if (testValue == docXml.Element("root").Elements("employee").Count() - 1)
+                    {
+                        MessageBox.Show("Name not found.", "Message");
+                    }
+                    else
+                    {
+                        testValue++;
+                    }
                 }
-                else if (checkValue == restoredData.Count - 1)
-                {
-                    MessageBox.Show("Name not found.", "Message");
-                    checkValue = 0;
-                }
-                else
-                {
-                    checkValue++;
-                }
-            }
 
-            foreach (var data in restoredData)
-            {
-                Console.WriteLine($"{JsonSerializer.Serialize(data)}");
-            }
-
-            var options = new JsonSerializerOptions
-            {
-                AllowTrailingCommas = true,
-                WriteIndented = true
-            };
-
-            using (StreamWriter file = File.CreateText(fileName))
-            {
-                string dataJson = JsonSerializer.Serialize(restoredData, options);
-                file.Write(dataJson);
+                docXml.Save(fileName);
             }
         }
     }

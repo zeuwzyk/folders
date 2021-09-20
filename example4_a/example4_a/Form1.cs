@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Windows.Forms;
 using System.Text.Json;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace example4_a
@@ -13,7 +13,6 @@ namespace example4_a
         public Form1()
         {
             InitializeComponent();
-            employeeGridView.RowHeadersVisible = false;
         }
 
         private void TextBoxNameEmployee_KeyPress(object sender, KeyPressEventArgs e)
@@ -47,17 +46,17 @@ namespace example4_a
 
             if (nameEmployee != "" && carEmployee != "" && radioButtonJson.Checked)
             {
-                FileHelper.SaveJson(nameEmployee, ageEmployee, carEmployee);
+                FileHelper.SaveFile(nameEmployee, ageEmployee, carEmployee, "json");
                 MessageBox.Show($"{nameEmployee} {numericAgeEmployee.Value} {carEmployee}", "Message");
             }
             else if (nameEmployee != "" && carEmployee != "" && radioButtonXml.Checked)
             {
-                FileHelper.SaveXml(nameEmployee, ageEmployee, carEmployee);
+                FileHelper.SaveFile(nameEmployee, ageEmployee, carEmployee, "xml");
                 MessageBox.Show($"{nameEmployee} {numericAgeEmployee.Value} {carEmployee}", "Message");
             }
             else
             {
-                MessageBox.Show(null, "You not entered all text or not entered radio button.", "Message");
+                MessageBox.Show("You not entered all text or not entered radio button.", "Message");
             }
         }
 
@@ -74,13 +73,13 @@ namespace example4_a
         {
             if (fileName.Contains(".json"))
             {
-                int ageEmployee;
                 int idEmployee;
+                int ageEmployee;
                 string nameEmployee;
                 string carEmployee;
 
                 string jsonString = File.ReadAllText(fileName);
-                List<DataEmployee> restoredData = new List<DataEmployee> { };
+                var restoredData = new List<DataEmployee> { };
 
                 try
                 {
@@ -103,19 +102,19 @@ namespace example4_a
             }
             else if (fileName.Contains(".xml"))
             {
-                XDocument xdoc = XDocument.Load(fileName);
-                XElement root = xdoc.Element("root");
+                XDocument docXml = XDocument.Load(fileName);
+                XElement rootXml = docXml.Element("root");
 
-                if (root != null)
+                if (rootXml != null)
                 {
-                    foreach (XElement employeeData in root.Elements("employee"))
+                    foreach (XElement employeeData in rootXml.Elements("employee"))
                     {
-                        XElement IdX = employeeData.Element("id");
+                        XElement IdEmplX = employeeData.Element("id");
                         XElement nameEmplX = employeeData.Element("name");
                         XElement ageEmplX = employeeData.Element("age");
                         XElement carEmplX = employeeData.Element("car");
 
-                        FillingGrid(int.Parse(IdX.Value), nameEmplX.Value, int.Parse(ageEmplX.Value), carEmplX.Value);
+                        FillingGrid(int.Parse(IdEmplX.Value), nameEmplX.Value, int.Parse(ageEmplX.Value), carEmplX.Value);
                     }
                 }
                 else
@@ -125,11 +124,11 @@ namespace example4_a
             }
         }
 
-        public void FillingGrid(int id, string nameEmployee, int ageEmployee, string carEmployee)
+        public void FillingGrid(int idEmployee, string nameEmployee, int ageEmployee, string carEmployee)
         {
             int rowNumber = employeeGridView.Rows.Add();
 
-            employeeGridView.Rows[rowNumber].Cells["col1"].Value = id;
+            employeeGridView.Rows[rowNumber].Cells["col1"].Value = idEmployee;
             employeeGridView.Rows[rowNumber].Cells["col2"].Value = nameEmployee;
             employeeGridView.Rows[rowNumber].Cells["col3"].Value = ageEmployee;
             employeeGridView.Rows[rowNumber].Cells["col4"].Value = carEmployee;
@@ -137,10 +136,10 @@ namespace example4_a
 
         private void ButtonFind(object sender, EventArgs e)
         {
-            int axualiryValue = 0;
+            int checkValue = 0;
             string fileName = FileHelper.OpenFile(0);
 
-            if (fileName == "")
+            if (fileName == null || fileName == "")
             {
                 buttonOpen.PerformClick();
             }
@@ -169,14 +168,14 @@ namespace example4_a
                         {
                             employeeGridView[i, j].Style.BackColor = Color.MediumBlue;
                             employeeGridView[i, j].Style.ForeColor = Color.Gold;
-                            axualiryValue = 1;
+                            checkValue = 1;
                         }
                     }
                 }
 
-                if (axualiryValue == 0)
+                if (checkValue == 0)
                 {
-                    MessageBox.Show(null, "Not found.", "Message");
+                    MessageBox.Show(null, "Information not found.", "Message");
                 }
             }
         }
@@ -185,15 +184,15 @@ namespace example4_a
         {
             string fileName = FileHelper.OpenFile(0);
 
-            if (fileName == "")
+            if (fileName == null || fileName == "")
             {
                 buttonOpen.PerformClick();
             }
 
-            string name = textBoxFindOrDelete.Text;
-            name = name.ToLower();
+            string nameFromTextBox = textBoxFindOrDelete.Text;
+            nameFromTextBox = nameFromTextBox.ToLower();
 
-            if (textBoxFindOrDelete.Text == "")
+            if (textBoxFindOrDelete.Text == "" || textBoxFindOrDelete.Text == null)
             {
                 MessageBox.Show(null, "Please, enter name.", "Message");
             }
@@ -201,22 +200,27 @@ namespace example4_a
             {
                 if (fileName.Contains(".xml"))
                 {
-                    FileManager.RemoveFromXml(name, fileName);
+                    FileManager.RemoveFromFile(nameFromTextBox, fileName, "xml");
                 }
                 else if (fileName.Contains(".json"))
                 {
-                    FileManager.RemoveFromJson(name, fileName);
+                    FileManager.RemoveFromFile(nameFromTextBox, fileName, "json");
                 }
             }
 
             textBoxFindOrDelete.Text = string.Empty;
+
+            fileName = FileHelper.OpenFile(0);
+
+            employeeGridView.Rows.Clear();
+            InitializationValueGrid(fileName);
         }
 
         private void TextBoxFindOrDelete_TextChanged(object sender, EventArgs e)
         {
             string fileName = FileHelper.OpenFile(0);
 
-            if (fileName == "")
+            if (fileName == null || fileName == "")
             {
                 buttonOpen.PerformClick();
             }

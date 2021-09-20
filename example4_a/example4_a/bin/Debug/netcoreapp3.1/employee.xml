@@ -26,14 +26,8 @@
   </employee>
   <employee>
     <id>6</id>
-    <name>sasha</name>
-    <age>27</age>
-    <car>skoda</car>
-  </employee>
-  <employee>
-    <id>7</id>
-    <name>ppp</name>
-    <age>19</age>
+    <name>aaa</name>
+    <age>21</age>
     <car>bmw</car>
   </employee>
 </root>

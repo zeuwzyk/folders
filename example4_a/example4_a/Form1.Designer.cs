@@ -30,10 +30,6 @@ namespace example4_a
         private void InitializeComponent()
         {
             this.employeeGridView = new System.Windows.Forms.DataGridView();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBoxCarEmployee = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,13 +44,21 @@ namespace example4_a
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonOpen = new System.Windows.Forms.Button();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAgeEmployee)).BeginInit();
             this.SuspendLayout();
             // 
             // employeeGridView
             // 
+            this.employeeGridView.AllowUserToResizeColumns = false;
+            this.employeeGridView.AllowUserToResizeRows = false;
+            this.employeeGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.employeeGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(37)))), ((int)(((byte)(101)))));
+            this.employeeGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.employeeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeeGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col1,
@@ -64,39 +68,11 @@ namespace example4_a
             this.employeeGridView.GridColor = System.Drawing.Color.Black;
             this.employeeGridView.Location = new System.Drawing.Point(241, 20);
             this.employeeGridView.Name = "employeeGridView";
+            this.employeeGridView.RowHeadersVisible = false;
+            this.employeeGridView.RowHeadersWidth = 70;
             this.employeeGridView.RowTemplate.Height = 25;
             this.employeeGridView.Size = new System.Drawing.Size(417, 299);
             this.employeeGridView.TabIndex = 0;
-            // 
-            // col1
-            // 
-            this.col1.Frozen = true;
-            this.col1.HeaderText = "ID";
-            this.col1.Name = "col1";
-            this.col1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.col1.Width = 60;
-            // 
-            // col2
-            // 
-            this.col2.Frozen = true;
-            this.col2.HeaderText = "Name";
-            this.col2.Name = "col2";
-            this.col2.Width = 150;
-            // 
-            // col3
-            // 
-            this.col3.Frozen = true;
-            this.col3.HeaderText = "Age";
-            this.col3.Name = "col3";
-            this.col3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.col3.Width = 60;
-            // 
-            // col4
-            // 
-            this.col4.Frozen = true;
-            this.col4.HeaderText = "Car";
-            this.col4.Name = "col4";
-            this.col4.Width = 150;
             // 
             // comboBoxCarEmployee
             // 
@@ -108,7 +84,7 @@ namespace example4_a
             "Skoda",
             "BMW",
             "Volkswagen"});
-            this.comboBoxCarEmployee.Location = new System.Drawing.Point(21, 71);
+            this.comboBoxCarEmployee.Location = new System.Drawing.Point(21, 69);
             this.comboBoxCarEmployee.Name = "comboBoxCarEmployee";
             this.comboBoxCarEmployee.Size = new System.Drawing.Size(194, 23);
             this.comboBoxCarEmployee.TabIndex = 1;
@@ -117,11 +93,11 @@ namespace example4_a
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.label1.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 14);
+            this.label1.Size = new System.Drawing.Size(178, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Enter name, age and car:";
             // 
@@ -129,24 +105,24 @@ namespace example4_a
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.label2.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(12, 101);
+            this.label2.Location = new System.Drawing.Point(12, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 14);
+            this.label2.Size = new System.Drawing.Size(155, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Enter format for save:";
             // 
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(37)))), ((int)(((byte)(101)))));
-            this.buttonSave.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSave.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSave.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonSave.Location = new System.Drawing.Point(152, 122);
+            this.buttonSave.Location = new System.Drawing.Point(152, 118);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(63, 23);
             this.buttonSave.TabIndex = 4;
@@ -157,11 +133,11 @@ namespace example4_a
             // buttonFind
             // 
             this.buttonFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(37)))), ((int)(((byte)(101)))));
-            this.buttonFind.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonFind.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonFind.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFind.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonFind.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonFind.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.buttonFind.Location = new System.Drawing.Point(21, 296);
             this.buttonFind.Name = "buttonFind";
@@ -174,11 +150,11 @@ namespace example4_a
             // buttonDelete
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(37)))), ((int)(((byte)(101)))));
-            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonDelete.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.buttonDelete.Location = new System.Drawing.Point(152, 294);
             this.buttonDelete.Name = "buttonDelete";
@@ -211,7 +187,7 @@ namespace example4_a
             // 
             this.numericAgeEmployee.BackColor = System.Drawing.Color.White;
             this.numericAgeEmployee.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericAgeEmployee.Location = new System.Drawing.Point(179, 42);
+            this.numericAgeEmployee.Location = new System.Drawing.Point(179, 41);
             this.numericAgeEmployee.Maximum = new decimal(new int[] {
             99,
             0,
@@ -235,11 +211,11 @@ namespace example4_a
             // 
             this.radioButtonJson.AutoSize = true;
             this.radioButtonJson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.radioButtonJson.Font = new System.Drawing.Font("Consolas", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.radioButtonJson.Font = new System.Drawing.Font("Consolas", 8.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.radioButtonJson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.radioButtonJson.Location = new System.Drawing.Point(21, 124);
             this.radioButtonJson.Name = "radioButtonJson";
-            this.radioButtonJson.Size = new System.Drawing.Size(60, 19);
+            this.radioButtonJson.Size = new System.Drawing.Size(60, 18);
             this.radioButtonJson.TabIndex = 11;
             this.radioButtonJson.TabStop = true;
             this.radioButtonJson.Text = ".json";
@@ -249,11 +225,11 @@ namespace example4_a
             // 
             this.radioButtonXml.AutoSize = true;
             this.radioButtonXml.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.radioButtonXml.Font = new System.Drawing.Font("Consolas", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.radioButtonXml.Font = new System.Drawing.Font("Consolas", 8.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.radioButtonXml.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.radioButtonXml.Location = new System.Drawing.Point(90, 124);
             this.radioButtonXml.Name = "radioButtonXml";
-            this.radioButtonXml.Size = new System.Drawing.Size(53, 19);
+            this.radioButtonXml.Size = new System.Drawing.Size(53, 18);
             this.radioButtonXml.TabIndex = 12;
             this.radioButtonXml.TabStop = true;
             this.radioButtonXml.Text = ".xml";
@@ -263,42 +239,76 @@ namespace example4_a
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.label3.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(12, 152);
+            this.label3.Location = new System.Drawing.Point(12, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 28);
+            this.label3.Size = new System.Drawing.Size(195, 32);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Click \"view\" for looking \r\ndata of employee.";
+            this.label3.Text = "Click \"view\" for looking data\r\nof employee.";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(25)))), ((int)(((byte)(52)))));
-            this.label4.Font = new System.Drawing.Font("Copperplate Gothic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(160)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(12, 217);
+            this.label4.Location = new System.Drawing.Point(12, 211);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(197, 56);
+            this.label4.Size = new System.Drawing.Size(204, 64);
             this.label4.TabIndex = 14;
             this.label4.Text = "Enter name, age or car emp-\r\nloyee for find or name for\r\ndelete:\r\n\r\n";
             // 
             // buttonOpen
             // 
             this.buttonOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(37)))), ((int)(((byte)(101)))));
-            this.buttonOpen.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonOpen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpen.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOpen.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonOpen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonOpen.Location = new System.Drawing.Point(152, 187);
+            this.buttonOpen.Location = new System.Drawing.Point(152, 183);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(63, 23);
             this.buttonOpen.TabIndex = 15;
             this.buttonOpen.Text = "open";
             this.buttonOpen.UseVisualStyleBackColor = false;
             this.buttonOpen.Click += new System.EventHandler(this.ButtonOpen);
+            // 
+            // col1
+            // 
+            this.col1.Frozen = true;
+            this.col1.HeaderText = "ID";
+            this.col1.Name = "col1";
+            this.col1.ReadOnly = true;
+            this.col1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.col1.Width = 75;
+            // 
+            // col2
+            // 
+            this.col2.Frozen = true;
+            this.col2.HeaderText = "Name";
+            this.col2.Name = "col2";
+            this.col2.ReadOnly = true;
+            this.col2.Width = 135;
+            // 
+            // col3
+            // 
+            this.col3.Frozen = true;
+            this.col3.HeaderText = "Age";
+            this.col3.Name = "col3";
+            this.col3.ReadOnly = true;
+            this.col3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.col3.Width = 75;
+            // 
+            // col4
+            // 
+            this.col4.Frozen = true;
+            this.col4.HeaderText = "Car";
+            this.col4.Name = "col4";
+            this.col4.ReadOnly = true;
+            this.col4.Width = 135;
             // 
             // Form1
             // 
@@ -353,7 +363,6 @@ namespace example4_a
         private System.Windows.Forms.DataGridViewTextBoxColumn col2;
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
         private System.Windows.Forms.DataGridViewTextBoxColumn col4;
-        private System.Windows.Forms.Button button2;
     }
 }
 

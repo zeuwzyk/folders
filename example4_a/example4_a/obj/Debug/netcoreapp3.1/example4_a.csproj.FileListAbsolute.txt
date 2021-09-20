@@ -13,3 +13,17 @@ D:\Projects\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.csproj.Core
 D:\Projects\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.dll
 D:\Projects\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.pdb
 D:\Projects\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.genruntimeconfig.cache
+E:\VS\projects\folders\example4_a\example4_a\bin\Debug\netcoreapp3.1\example4_a.exe
+E:\VS\projects\folders\example4_a\example4_a\bin\Debug\netcoreapp3.1\example4_a.deps.json
+E:\VS\projects\folders\example4_a\example4_a\bin\Debug\netcoreapp3.1\example4_a.runtimeconfig.json
+E:\VS\projects\folders\example4_a\example4_a\bin\Debug\netcoreapp3.1\example4_a.runtimeconfig.dev.json
+E:\VS\projects\folders\example4_a\example4_a\bin\Debug\netcoreapp3.1\example4_a.dll
+E:\VS\projects\folders\example4_a\example4_a\bin\Debug\netcoreapp3.1\example4_a.pdb
+E:\VS\projects\folders\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.csprojAssemblyReference.cache
+E:\VS\projects\folders\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.Form1.resources
+E:\VS\projects\folders\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.csproj.GenerateResource.cache
+E:\VS\projects\folders\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.AssemblyInfoInputs.cache
+E:\VS\projects\folders\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.AssemblyInfo.cs
+E:\VS\projects\folders\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.dll
+E:\VS\projects\folders\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.pdb
+D:\Projects\example4_a\example4_a\obj\Debug\netcoreapp3.1\example4_a.csproj.AssemblyReference.cache

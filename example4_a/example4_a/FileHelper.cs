@@ -7,52 +7,55 @@ using System.Windows.Forms;
 
 namespace example4_a
 {
-    public class FileHelper
+    static class FileHelper
     {
-        public static void SaveJson(string name, int age, string car)
+
+        public static void SaveFile(string name, int age, string car, string checkValue)
         {
-            var options = new JsonSerializerOptions
+            if (checkValue == "json")
             {
-                AllowTrailingCommas = true,
-                WriteIndented = true
-            };
+                var options = new JsonSerializerOptions
+                {
+                    AllowTrailingCommas = true,
+                    WriteIndented = true
+                };
 
-            string fileName = "employee.json";
-            string jsonString = File.ReadAllText(fileName);
+                string fileName = "employee.json";
+                string jsonString = File.ReadAllText(fileName);
 
-            var restoredData = JsonSerializer.Deserialize<List<DataEmployee>>(jsonString);
+                var restoredData = JsonSerializer.Deserialize<List<DataEmployee>>(jsonString);
 
-            int id = restoredData.Last().Id + 1;
+                int id = restoredData.Last().Id + 1;
 
-            restoredData.Add(new DataEmployee()
-            {
-                Id = id,
-                Name = name,
-                Age = age,
-                Car = car
+                restoredData.Add(new DataEmployee()
+                {
+                    Id = id,
+                    Name = name,
+                    Age = age,
+                    Car = car
+                }
+                );
+
+                using (StreamWriter file = File.CreateText(fileName))
+                {
+                    string data = JsonSerializer.Serialize(restoredData, options);
+                    file.Write(data);
+                }
             }
-            );
-
-            using (StreamWriter file = File.CreateText(fileName))
+            else
             {
-                string data = JsonSerializer.Serialize(restoredData, options);
-                file.Write(data);
+                XDocument xdoc = XDocument.Load("employee.xml");
+                XElement root = xdoc.Element("root");
+
+                int id = int.Parse(root.Elements("employee").Elements("id").Last().Value) + 1;
+
+                root.Add(new XElement("employee",
+                       new XElement("id", id),
+                       new XElement("name", name),
+                       new XElement("age", age),
+                       new XElement("car", car)));
+                xdoc.Save("employee.xml");
             }
-        }
-
-        public static void SaveXml(string name, int age, string car)
-        {
-            XDocument xdoc = XDocument.Load("employee.xml");
-            XElement root = xdoc.Element("root");
-
-            var id = int.Parse(root.Elements("employee").Elements("id").Last().Value) + 1;
-
-            root.Add(new XElement("employee",
-                   new XElement("id", id),
-                   new XElement("name", name),
-                   new XElement("age", age),
-                   new XElement("car", car)));
-            xdoc.Save("employee.xml");
         }
 
         public static string fileName = "";
