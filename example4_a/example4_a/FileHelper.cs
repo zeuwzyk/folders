@@ -9,7 +9,6 @@ namespace example4_a
 {
     static class FileHelper
     {
-
         public static void SaveFile(string name, int age, string car, string checkValue)
         {
             if (checkValue == "json")
@@ -75,6 +74,10 @@ namespace example4_a
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     fileName = openFileDialog.FileName;
+                }
+                else
+                {
+                    MessageBox.Show("File is not entered.", "Message");
                 }
             }
 

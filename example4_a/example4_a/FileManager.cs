@@ -22,6 +22,7 @@ namespace example4_a
                 foreach (var data in restoredData.ToArray())
                 {
                     string nameEmployee = data.Name.ToString();
+                   
                     if (name == nameEmployee)
                     {
                         restoredData.Remove(data);
