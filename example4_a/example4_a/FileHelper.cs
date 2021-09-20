@@ -9,7 +9,6 @@ namespace example4_a
 {
     static class FileHelper
     {
-
         public static void SaveFile(string name, int age, string car, string checkValue)
         {
             if (checkValue == "json")
