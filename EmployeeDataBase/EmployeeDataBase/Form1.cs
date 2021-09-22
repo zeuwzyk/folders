@@ -9,7 +9,7 @@ namespace EmployeeDataBase
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
         private void TextBoxNameEmployee_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -17,48 +17,67 @@ namespace EmployeeDataBase
             {
                 e.Handled = true;
             }
-            else if (e.KeyChar == 0)
-            {
-                MessageBox.Show("Not correct symbol was entered.", "Message");
-            }
         }
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(textBoxNameEmployee.Text) && !string.IsNullOrEmpty(comboBoxCarEmployee.Text))
             {
-                using (DataBaseManager db = new DataBaseManager())//вызов функции из dataamanager <-> datahelper
+                //id
+                var nameEmployee = textBoxNameEmployee.Text.ToLower();
+                var ageEmployee = (int)numericAgeEmployee.Value;
+                var carEmployee = comboBoxCarEmployee.Text.ToLower();
+
+                //FileManager.SaveDataBase(nameEmployee, ageEmployee,carEmployee);
+                using (DataBaseManager db = new DataBaseManager())
                 {
+                    int id1 = 0;
+
+                    if (employeeGridView.Rows.Count == 1)
+                    {
+                        id1 = 0;
+                    }
+                    else
+                    {
+                    var id = db.Employees.OrderBy(x => x.Id).Last();//при пустоте ошибка
+                        id1 = id.Id;
+                    }
+
+
                     DataEmployee employee = new DataEmployee
                     {
-                        //Id = db.Employees.Last().Id + 1,
-                        Name = textBoxNameEmployee.Text.ToLower(),
-                        Age = (int)numericAgeEmployee.Value,//не знаю как в стринг и есть ли смысл
-                        Car = comboBoxCarEmployee.Text.ToLower()
+                        Id = id1+1,
+                        Name = nameEmployee,
+                        Age = ageEmployee,
+                        Car = carEmployee
                     };
 
                     db.Employees.Add(employee);
                     db.SaveChanges();
                 }
+
+                MessageBox.Show("Information was saved.", "Message");
             }
             else
             {
-                MessageBox.Show("You not entered all iformation.", "Message");
+                MessageBox.Show("You not entered all information.", "Message");
             }
 
             textBoxNameEmployee.Text = string.Empty;
-            comboBoxCarEmployee.Text = string.Empty;
+            comboBoxCarEmployee.SelectedIndex = -1;
         }
-
 
         private void ButtonView_Click(object sender, EventArgs e)
         {
             employeeGridView.Rows.Clear();
+            //ActionWithGrid.InitializationValueGrid();
             InitializationValueGrid();
         }
-        public void InitializationValueGrid()//замутить проверку на файлы
+
+        public void InitializationValueGrid()
         {
             try
             {
+                //FileHelper.OpenFile();
                 using (DataBaseManager db = new DataBaseManager())//мб как-то вынести в fileManager
                 {
                     var employee = db.Employees.ToList();
@@ -88,6 +107,7 @@ namespace EmployeeDataBase
             employeeGridView.Rows[rowNumber].Cells["col3"].Value = ageEmployee;
             employeeGridView.Rows[rowNumber].Cells["col4"].Value = carEmployee;
         }
+
         private void ButtonFind_Click(object sender, EventArgs e)
         {
             int checkValue = 0;
@@ -176,6 +196,23 @@ namespace EmployeeDataBase
         }
 
         private void TextBoxFindOrDelete_TextChanged(object sender, EventArgs e)
+        {
+            if (employeeGridView.Rows.Count == 1)
+            {
+                buttonView.PerformClick();
+            }
+        }
+
+        private void textBoxFindOrDelete_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 8 && (e.KeyChar < 64 || e.KeyChar > 91) && (e.KeyChar > 123 || e.KeyChar < 96)
+                && (e.KeyChar < 48 || e.KeyChar > 57))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
             if (employeeGridView.Rows.Count == 1)
             {

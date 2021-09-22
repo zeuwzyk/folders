@@ -33,7 +33,6 @@ namespace EmployeeDataBase
             this.label3 = new System.Windows.Forms.Label();
             this.numericAgeEmployee = new System.Windows.Forms.NumericUpDown();
             this.textBoxFindOrDelete = new System.Windows.Forms.TextBox();
-            this.textBoxNameEmployee = new System.Windows.Forms.TextBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonFind = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,13 +45,14 @@ namespace EmployeeDataBase
             this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxNameEmployee = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericAgeEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonView
             // 
-            this.buttonView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.buttonView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.buttonView.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonView.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -72,7 +72,7 @@ namespace EmployeeDataBase
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
             this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label3.Location = new System.Drawing.Point(8, 154);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(195, 32);
@@ -111,20 +111,11 @@ namespace EmployeeDataBase
             this.textBoxFindOrDelete.Size = new System.Drawing.Size(199, 23);
             this.textBoxFindOrDelete.TabIndex = 24;
             this.textBoxFindOrDelete.TextChanged += new System.EventHandler(this.TextBoxFindOrDelete_TextChanged);
-            // 
-            // textBoxNameEmployee
-            // 
-            this.textBoxNameEmployee.BackColor = System.Drawing.Color.White;
-            this.textBoxNameEmployee.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNameEmployee.Location = new System.Drawing.Point(12, 33);
-            this.textBoxNameEmployee.Name = "textBoxNameEmployee";
-            this.textBoxNameEmployee.Size = new System.Drawing.Size(156, 23);
-            this.textBoxNameEmployee.TabIndex = 23;
-            this.textBoxNameEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNameEmployee_KeyPress);
+            this.textBoxFindOrDelete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFindOrDelete_KeyPress);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -141,7 +132,7 @@ namespace EmployeeDataBase
             // 
             // buttonFind
             // 
-            this.buttonFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.buttonFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.buttonFind.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonFind.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -161,19 +152,19 @@ namespace EmployeeDataBase
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
             this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label2.Location = new System.Drawing.Point(8, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(186, 32);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Enter \"save\" for save data \r\nemployee:";
+            this.label2.Text = "Enter \"save\" for save data \r\nemployee.";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
             this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label1.Location = new System.Drawing.Point(8, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 16);
@@ -185,7 +176,7 @@ namespace EmployeeDataBase
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
             this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label4.Location = new System.Drawing.Point(12, 219);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(204, 48);
@@ -194,7 +185,7 @@ namespace EmployeeDataBase
             // 
             // buttonSave
             // 
-            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.buttonSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
             this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -229,7 +220,7 @@ namespace EmployeeDataBase
             this.employeeGridView.AllowUserToResizeColumns = false;
             this.employeeGridView.AllowUserToResizeRows = false;
             this.employeeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.employeeGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(167)))));
+            this.employeeGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.employeeGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.employeeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeeGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -272,6 +263,16 @@ namespace EmployeeDataBase
             this.col4.Name = "col4";
             this.col4.ReadOnly = true;
             // 
+            // textBoxNameEmployee
+            // 
+            this.textBoxNameEmployee.BackColor = System.Drawing.Color.White;
+            this.textBoxNameEmployee.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxNameEmployee.Location = new System.Drawing.Point(12, 33);
+            this.textBoxNameEmployee.Name = "textBoxNameEmployee";
+            this.textBoxNameEmployee.Size = new System.Drawing.Size(156, 23);
+            this.textBoxNameEmployee.TabIndex = 23;
+            this.textBoxNameEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNameEmployee_KeyPress);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -295,6 +296,7 @@ namespace EmployeeDataBase
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericAgeEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).EndInit();
             this.ResumeLayout(false);
@@ -308,7 +310,6 @@ namespace EmployeeDataBase
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericAgeEmployee;
         private System.Windows.Forms.TextBox textBoxFindOrDelete;
-        private System.Windows.Forms.TextBox textBoxNameEmployee;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonFind;
         private System.Windows.Forms.Label label2;
@@ -321,6 +322,7 @@ namespace EmployeeDataBase
         private System.Windows.Forms.DataGridViewTextBoxColumn col2;
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
         private System.Windows.Forms.DataGridViewTextBoxColumn col4;
+        private System.Windows.Forms.TextBox textBoxNameEmployee;
     }
 }
 

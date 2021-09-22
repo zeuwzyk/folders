@@ -2,10 +2,11 @@
 
 namespace EmployeeDataBase
 {
-    public partial class DataBaseManager : DbContext//про допуски почитать
+    public partial class DataBaseManager : DbContext
     {
         public DataBaseManager()
         {
+            Database.EnsureCreated();//может стирать
         }
 
         public DataBaseManager(DbContextOptions<DataBaseManager> options) : base(options)
@@ -14,6 +15,7 @@ namespace EmployeeDataBase
 
         public virtual DbSet<DataEmployee> Employees { get; set; }
 
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
