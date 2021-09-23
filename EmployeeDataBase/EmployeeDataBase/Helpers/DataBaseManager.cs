@@ -6,7 +6,7 @@ namespace EmployeeDataBase
     {
         public DataBaseManager()
         {
-            Database.EnsureCreated();//может стирать
+            Database.EnsureCreated();
         }
 
         public DataBaseManager(DbContextOptions<DataBaseManager> options) : base(options)

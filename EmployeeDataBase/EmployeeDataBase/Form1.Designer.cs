@@ -70,7 +70,7 @@ namespace EmployeeDataBase
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label3.Location = new System.Drawing.Point(8, 154);
@@ -111,7 +111,7 @@ namespace EmployeeDataBase
             this.textBoxFindOrDelete.Size = new System.Drawing.Size(199, 23);
             this.textBoxFindOrDelete.TabIndex = 24;
             this.textBoxFindOrDelete.TextChanged += new System.EventHandler(this.TextBoxFindOrDelete_TextChanged);
-            this.textBoxFindOrDelete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFindOrDelete_KeyPress);
+            this.textBoxFindOrDelete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxFindOrDelete_KeyPress);
             // 
             // buttonDelete
             // 
@@ -150,7 +150,7 @@ namespace EmployeeDataBase
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label2.Location = new System.Drawing.Point(8, 89);
@@ -162,7 +162,7 @@ namespace EmployeeDataBase
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label1.Location = new System.Drawing.Point(8, 12);
@@ -174,7 +174,7 @@ namespace EmployeeDataBase
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
             this.label4.Location = new System.Drawing.Point(12, 219);
@@ -277,7 +277,7 @@ namespace EmployeeDataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(165)))), ((int)(((byte)(107)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.ClientSize = new System.Drawing.Size(681, 341);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonView);
