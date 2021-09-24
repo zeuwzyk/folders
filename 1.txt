@@ -1,1 +1,2 @@
 https://makolyte.com/sqlexception-cannot-insert-explicit-value-for-identity-column/
+https://stackoverflow.com/questions/24214860/entity-framework-an-error-occurred-while-updating-the-entries-see-the-inner

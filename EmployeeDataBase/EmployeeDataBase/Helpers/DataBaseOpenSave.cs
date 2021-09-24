@@ -27,6 +27,7 @@ namespace EmployeeDataBase.Helpers
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             OnModelCreatingPartial(modelBuilder);
+           // modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

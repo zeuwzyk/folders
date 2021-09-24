@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace EmployeeDataBase.Helpers
@@ -24,26 +25,32 @@ namespace EmployeeDataBase.Helpers
 
             using (DataBaseOpenSave db = new DataBaseOpenSave())
             {
-                if (employeeGridView.Rows.Count == 1)
-                {
-                    idEmployee = 0;
-                }
-                else
-                {
-                    var id = db.Employees.OrderBy(x => x.Id).Last();
-                    idEmployee = id.Id;
-                }
+               // using (var transaction = db.Database.BeginTransaction())
+               // {
+                    if (employeeGridView.Rows.Count == 1)
+                    {
+                        idEmployee = 0;
+                    }
+                    else
+                    {
+                        var id = db.Employees.OrderBy(x => x.Id).Last();
+                        idEmployee = id.Id;
+                    }
 
-                DataEmployee employee = new DataEmployee
-                {
-                    //Id = idEmployee + 1,//не устанавливать значение, может сработать, якобы
-                    Name = nameEmployee,
-                    Age = ageEmployee,
-                    Car = carEmployee
-                };
+                    DataEmployee employee = new DataEmployee
+                    {
+                        //   Id = idEmployee + 1,//не устанавливать значение, может сработать, якобы //IDENTITY(1,1)
+                        Name = nameEmployee,
+                        Age = ageEmployee,
+                        Car = carEmployee
+                    };
 
-                db.Employees.Add(employee);
-                db.SaveChanges();
+                   // db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees ON;");//читануть//протестить
+                    db.Employees.Add(employee);
+                    db.SaveChanges();
+                   // db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees OFF;");
+                   // transaction.Commit();
+                //}
             }
         }
 
