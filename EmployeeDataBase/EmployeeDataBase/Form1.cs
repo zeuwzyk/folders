@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace EmployeeDataBase
@@ -19,8 +18,8 @@ namespace EmployeeDataBase
                 var ageEmployee = (int)numericAgeEmployee.Value;
                 var carEmployee = comboBoxCarEmployee.Text.ToLower();
 
-                Helpers.GridHelper.OpenBD(employeeGridView, nameEmployee, ageEmployee, carEmployee);
-
+                Helpers.DataBaseManager.SaveDB(employeeGridView, nameEmployee, ageEmployee, carEmployee);
+                
                 MessageBox.Show("Information was saved.", "Message");
             }
             else
@@ -30,6 +29,7 @@ namespace EmployeeDataBase
 
             textBoxNameEmployee.Text = string.Empty;
             comboBoxCarEmployee.SelectedIndex = -1;
+            numericAgeEmployee.Value = 18;
 
             Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 0);
         }
@@ -37,7 +37,7 @@ namespace EmployeeDataBase
         private void ButtonView_Click(object sender, EventArgs e)
         {
             employeeGridView.Rows.Clear();
-            Helpers.GridHelper.InitializationGrid(employeeGridView);
+            Helpers.GridHelper.InitializationGrid(employeeGridView, textBoxNameEmployee);
         }
 
         private void ButtonFind_Click(object sender, EventArgs e)
@@ -53,6 +53,7 @@ namespace EmployeeDataBase
             else
             {
                 buttonView.PerformClick();
+
                 checkValue = Helpers.GridHelper.FindInformation(employeeGridView, checkValue, textBoxFindOrDelete.Text);
 
                 if (checkValue == 0)
@@ -74,7 +75,7 @@ namespace EmployeeDataBase
             }
             else if (!string.IsNullOrEmpty(textBoxFindOrDelete.Text))
             {
-                Helpers.GridHelper.DeleteFromBD(textBoxFindOrDelete);
+                Helpers.DataBaseManager.DeleteFromBD(textBoxFindOrDelete);
             }
 
            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete,0);
@@ -102,7 +103,7 @@ namespace EmployeeDataBase
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void TextBoxNameEmployee_TextChanged(object sender, EventArgs e)
         {
             Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 1);
         }

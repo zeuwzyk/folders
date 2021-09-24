@@ -271,6 +271,7 @@ namespace EmployeeDataBase
             this.textBoxNameEmployee.Name = "textBoxNameEmployee";
             this.textBoxNameEmployee.Size = new System.Drawing.Size(156, 23);
             this.textBoxNameEmployee.TabIndex = 23;
+            this.textBoxNameEmployee.TextChanged += new System.EventHandler(this.TextBoxNameEmployee_TextChanged);
             this.textBoxNameEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNameEmployee_KeyPress);
             // 
             // Form1
@@ -296,7 +297,6 @@ namespace EmployeeDataBase
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericAgeEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).EndInit();
             this.ResumeLayout(false);

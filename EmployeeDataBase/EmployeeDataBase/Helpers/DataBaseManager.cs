@@ -1,34 +1,59 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
+using System.Windows.Forms;
 
-namespace EmployeeDataBase
+namespace EmployeeDataBase.Helpers
 {
-    public partial class DataBaseManager : DbContext
+    public static class DataBaseManager
     {
-        public DataBaseManager()
+        public static void OpenDB(DataGridView employeeGridView)
         {
-            Database.EnsureCreated();
-        }
-
-        public DataBaseManager(DbContextOptions<DataBaseManager> options) : base(options)
-        {
-        }
-
-        public virtual DbSet<DataEmployee> Employees { get; set; }
-
-        
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
+            using (DataBaseOpenSave db = new DataBaseOpenSave())
             {
-                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=employeedb;Trusted_Connection=True;");
+                var employee = db.Employees.ToList();
+
+                foreach (DataEmployee de in employee)
+                {
+                    GridHelper.FillingGrid(employeeGridView, de.Id, de.Name, de.Age, de.Car);
+                }
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public static void SaveDB(DataGridView employeeGridView, string nameEmployee, int ageEmployee, string carEmployee)
         {
-            OnModelCreatingPartial(modelBuilder);
+            int idEmployee;
+
+            using (DataBaseOpenSave db = new DataBaseOpenSave())
+            {
+                if (employeeGridView.Rows.Count == 1)
+                {
+                    idEmployee = 0;
+                }
+                else
+                {
+                    var id = db.Employees.OrderBy(x => x.Id).Last();
+                    idEmployee = id.Id;
+                }
+
+                DataEmployee employee = new DataEmployee
+                {
+                    Id = idEmployee + 1,
+                    Name = nameEmployee,
+                    Age = ageEmployee,
+                    Car = carEmployee
+                };
+
+                db.Employees.Add(employee);
+                db.SaveChanges();
+            }
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        public static void DeleteFromBD(TextBox textBoxFindOrDelete)
+        {
+            using (DataBaseOpenSave db = new DataBaseOpenSave())
+            {
+                db.Employees.RemoveRange(db.Employees.Where(x => x.Name == textBoxFindOrDelete.Text));
+                db.SaveChanges();
+            }
+        }
     }
 }

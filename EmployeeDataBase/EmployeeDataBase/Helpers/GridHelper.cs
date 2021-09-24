@@ -6,21 +6,13 @@ namespace EmployeeDataBase.Helpers
 {
     public static class GridHelper
     {
-        public static void InitializationGrid(DataGridView employeeGridView) 
+        public static void InitializationGrid(DataGridView employeeGridView, TextBox textBoxNameEmployee)
         {
             try
             {
-                using (DataBaseManager db = new DataBaseManager())
-                {
-                    var employee = db.Employees.ToList();
+                DataBaseManager.OpenDB(employeeGridView);
 
-                    foreach (DataEmployee de in employee)
-                    {
-                        FillingGrid(employeeGridView, de.Id, de.Name, de.Age, de.Car);
-                    }
-                }
-
-                if (employeeGridView.Rows.Count == 1)
+                if (employeeGridView.Rows.Count == 1 && string.IsNullOrEmpty(textBoxNameEmployee.Text))
                 {
                     MessageBox.Show("Empty file. Please save data at database.", "Message");
                 }
@@ -89,47 +81,6 @@ namespace EmployeeDataBase.Helpers
             {
                 textBoxFindOrDelete.Clear();
                 buttonView.PerformClick();
-            }
-        }
-
-
-        public static void OpenBD(DataGridView employeeGridView, string nameEmployee,int ageEmployee, string carEmployee)
-        {
-            int idEmployee;
-
-            using (DataBaseManager db = new DataBaseManager())
-            {
-                if (employeeGridView.Rows.Count == 1)
-                {
-                    idEmployee = 0;
-                }
-                else
-                {
-                    var id = db.Employees.OrderBy(x => x.Id).Last();
-                    idEmployee = id.Id;
-                }
-
-                DataEmployee employee = new DataEmployee
-                {
-                    Id = idEmployee + 1,
-                    Name = nameEmployee,
-                    Age = ageEmployee,
-                    Car = carEmployee
-                };
-
-                db.Employees.Add(employee);
-                db.SaveChanges();
-            }
-        }
-
-        public static void DeleteFromBD(TextBox textBoxFindOrDelete)
-        {
-            //int checkValue = 0;
-
-            using (DataBaseManager db = new DataBaseManager())
-            {
-                db.Employees.RemoveRange(db.Employees.Where(x => x.Name == textBoxFindOrDelete.Text));
-                db.SaveChanges();
             }
         }
     }
