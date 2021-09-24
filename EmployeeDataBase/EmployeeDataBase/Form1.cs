@@ -19,7 +19,7 @@ namespace EmployeeDataBase
                 var carEmployee = comboBoxCarEmployee.Text.ToLower();
 
                 Helpers.DataBaseManager.SaveDB(employeeGridView, nameEmployee, ageEmployee, carEmployee);
-                
+
                 MessageBox.Show("Information was saved.", "Message");
             }
             else
@@ -80,7 +80,7 @@ namespace EmployeeDataBase
                 Helpers.DataBaseManager.DeleteFromBD(employeeGridView, textBoxFindOrDelete, checkValue);
             }
 
-           Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete,0);
+            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 0);
         }
 
         private void TextBoxFindOrDelete_TextChanged(object sender, EventArgs e)
@@ -98,8 +98,7 @@ namespace EmployeeDataBase
 
         private void TextBoxFindOrDelete_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != 8 && (e.KeyChar < 64 || e.KeyChar > 91) && (e.KeyChar > 123 || e.KeyChar < 96)
-                && (e.KeyChar < 48 || e.KeyChar > 57))
+            if (e.KeyChar != 8 && (e.KeyChar < 64 || e.KeyChar > 91) && (e.KeyChar > 123 || e.KeyChar < 96) && (e.KeyChar < 48 || e.KeyChar > 57))
             {
                 e.Handled = true;
             }

@@ -53,11 +53,11 @@ namespace EmployeeDataBase.Helpers
 
             if (checkValue == 1)
             {
-            using (DataBaseOpenSave db = new DataBaseOpenSave())
-            {
-                db.Employees.RemoveRange(db.Employees.Where(x => x.Name == textBoxFindOrDelete.Text));
-                db.SaveChanges();
-            }
+                using (DataBaseOpenSave db = new DataBaseOpenSave())
+                {
+                    db.Employees.RemoveRange(db.Employees.Where(x => x.Name == textBoxFindOrDelete.Text));
+                    db.SaveChanges();
+                }
             }
             else
             {
