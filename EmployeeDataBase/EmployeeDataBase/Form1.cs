@@ -67,6 +67,8 @@ namespace EmployeeDataBase
 
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
+            int checkValue = 0;
+
             Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 1);
 
             if (string.IsNullOrEmpty(textBoxFindOrDelete.Text))
@@ -75,7 +77,7 @@ namespace EmployeeDataBase
             }
             else if (!string.IsNullOrEmpty(textBoxFindOrDelete.Text))
             {
-                Helpers.DataBaseManager.DeleteFromBD(textBoxFindOrDelete);
+                Helpers.DataBaseManager.DeleteFromBD(employeeGridView, textBoxFindOrDelete, checkValue);
             }
 
            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete,0);

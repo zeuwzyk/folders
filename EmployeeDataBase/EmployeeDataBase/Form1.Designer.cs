@@ -296,7 +296,7 @@ namespace EmployeeDataBase
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Database of employee";
             ((System.ComponentModel.ISupportInitialize)(this.numericAgeEmployee)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).EndInit();
             this.ResumeLayout(false);

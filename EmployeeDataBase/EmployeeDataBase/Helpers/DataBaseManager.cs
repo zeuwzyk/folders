@@ -47,12 +47,21 @@ namespace EmployeeDataBase.Helpers
             }
         }
 
-        public static void DeleteFromBD(TextBox textBoxFindOrDelete)
+        public static void DeleteFromBD(DataGridView employeeGridView, TextBox textBoxFindOrDelete, int checkValue)
         {
+            checkValue = GridHelper.FindInformation(employeeGridView, checkValue, textBoxFindOrDelete.Text);
+
+            if (checkValue == 1)
+            {
             using (DataBaseOpenSave db = new DataBaseOpenSave())
             {
                 db.Employees.RemoveRange(db.Employees.Where(x => x.Name == textBoxFindOrDelete.Text));
                 db.SaveChanges();
+            }
+            }
+            else
+            {
+                MessageBox.Show("Information not found.", "Message");
             }
         }
     }
