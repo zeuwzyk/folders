@@ -36,7 +36,7 @@ namespace EmployeeDataBase.Helpers
 
                 DataEmployee employee = new DataEmployee
                 {
-                    Id = idEmployee + 1,
+                    //Id = idEmployee + 1,//не устанавливать значение, может сработать, якобы
                     Name = nameEmployee,
                     Age = ageEmployee,
                     Car = carEmployee
