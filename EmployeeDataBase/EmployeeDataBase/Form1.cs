@@ -10,103 +10,135 @@ namespace EmployeeDataBase
             InitializeComponent();
         }
 
-        private void ButtonSave_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(textBoxNameEmployee.Text) && !string.IsNullOrEmpty(comboBoxCarEmployee.Text))
-            {
-                var nameEmployee = textBoxNameEmployee.Text.ToLower();
-                var ageEmployee = (int)numericAgeEmployee.Value;
-                var carEmployee = comboBoxCarEmployee.Text.ToLower();
-
-                Helpers.DataBaseManager.SaveDB(employeeGridView, nameEmployee, ageEmployee, carEmployee);
-
-                MessageBox.Show("Information was saved.", "Message");
-            }
-            else
-            {
-                MessageBox.Show("You not entered all information.", "Message");
-            }
-
-            textBoxNameEmployee.Text = string.Empty;
-            comboBoxCarEmployee.SelectedIndex = -1;
-            numericAgeEmployee.Value = 18;
-
-            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 0);
-        }
+        private bool buttonViewWasClicked = false;
 
         private void ButtonView_Click(object sender, EventArgs e)
         {
             employeeGridView.Rows.Clear();
-            Helpers.GridHelper.InitializationGrid(employeeGridView, textBoxNameEmployee);
+
+            buttonViewWasClicked = true;
+
+            Helpers.GridHelper.Initialization(employeeGridView, textBoxNameEmployee);
+        }
+
+        private void ButtonSave_Click(object sender, EventArgs e)
+        {
+            if (buttonViewWasClicked == true)
+            {
+                if (!string.IsNullOrEmpty(textBoxNameEmployee.Text) && !string.IsNullOrEmpty(comboBoxCarEmployee.Text))
+                {
+                    var nameEmployee = textBoxNameEmployee.Text.ToLower();
+                    var ageEmployee = (int)numericAgeEmployee.Value;
+                    var carEmployee = comboBoxCarEmployee.Text.ToLower();
+
+                    Helpers.DataBaseManager.Save(employeeGridView, nameEmployee, ageEmployee, carEmployee);
+
+                    MessageBox.Show("Information was saved.", "Message");
+                }
+                else
+                {
+                    MessageBox.Show("You not entered all information.", "Message");
+                }
+
+                textBoxNameEmployee.Text = string.Empty;
+                comboBoxCarEmployee.SelectedIndex = -1;
+                numericAgeEmployee.Value = 18;
+
+                Helpers.GridHelper.Upgrade(buttonView, textBoxFindOrDelete);
+            }
+            else
+            {
+                MessageBox.Show("Please enter button 'View'.", "Message");
+            }
         }
 
         private void ButtonFind_Click(object sender, EventArgs e)
         {
-            int checkValue = 0;
-
-            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 1);
-
-            if (string.IsNullOrEmpty(textBoxFindOrDelete.Text))
+            if (buttonViewWasClicked == true)
             {
-                MessageBox.Show("Please, enter information.", "Message");
+                int checkValue = 0;
+
+                if (string.IsNullOrEmpty(textBoxFindOrDelete.Text))
+                {
+                    MessageBox.Show("Please, enter information.", "Message");
+                }
+                else
+                {
+                    buttonView.PerformClick();
+
+                    checkValue = Helpers.GridHelper.FindInformation(employeeGridView, checkValue, textBoxFindOrDelete.Text);
+
+                    if (checkValue == 0)
+                    {
+                        MessageBox.Show("Information not found.", "Message");
+                    }
+                }
+
+                textBoxFindOrDelete.Clear();
             }
             else
             {
-                buttonView.PerformClick();
+                MessageBox.Show("Please enter button 'View'.", "Message");
+            }
+        }
 
-                checkValue = Helpers.GridHelper.FindInformation(employeeGridView, checkValue, textBoxFindOrDelete.Text);
+        private void ButtonRemove_Click(object sender, EventArgs e)
+        {
+            if (buttonViewWasClicked == true)
+            {
+                int checkValue = 0;
 
-                if (checkValue == 0)
+                if (string.IsNullOrEmpty(textBoxFindOrDelete.Text))
                 {
-                    MessageBox.Show("Information not found.", "Message");
+                    MessageBox.Show("Please, enter name.", "Message");
                 }
+                else if (!string.IsNullOrEmpty(textBoxFindOrDelete.Text))
+                {
+                    Helpers.DataBaseManager.Remove(employeeGridView, textBoxFindOrDelete, checkValue);
+                }
+
+                Helpers.GridHelper.Upgrade(buttonView, textBoxFindOrDelete);
             }
-
-            textBoxFindOrDelete.Clear();
-        }
-
-        private void ButtonDelete_Click(object sender, EventArgs e)
-        {
-            int checkValue = 0;
-
-            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 1);
-
-            if (string.IsNullOrEmpty(textBoxFindOrDelete.Text))
+            else
             {
-                MessageBox.Show("Please, enter name.", "Message");
+                MessageBox.Show("Please enter button 'View'.", "Message");
             }
-            else if (!string.IsNullOrEmpty(textBoxFindOrDelete.Text))
-            {
-                Helpers.DataBaseManager.DeleteFromBD(employeeGridView, textBoxFindOrDelete, checkValue);
-            }
-
-            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 0);
-        }
-
-        private void TextBoxFindOrDelete_TextChanged(object sender, EventArgs e)
-        {
-            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 1);
         }
 
         private void TextBoxNameEmployee_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != 8 && (e.KeyChar < 64 || e.KeyChar > 91) && (e.KeyChar > 123 || e.KeyChar < 96))
+            if (buttonViewWasClicked == true)
             {
-                e.Handled = true;
+                textBoxNameEmployee.ReadOnly = false;
+
+                if (e.KeyChar != 8 && (e.KeyChar < 64 || e.KeyChar > 91) && (e.KeyChar > 123 || e.KeyChar < 96))
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter button 'View'.", "Message");
+                textBoxNameEmployee.ReadOnly = true;
             }
         }
 
         private void TextBoxFindOrDelete_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != 8 && (e.KeyChar < 64 || e.KeyChar > 91) && (e.KeyChar > 123 || e.KeyChar < 96) && (e.KeyChar < 48 || e.KeyChar > 57))
+            if (buttonViewWasClicked == true)
             {
-                e.Handled = true;
-            }
-        }
+                textBoxFindOrDelete.ReadOnly = false;
 
-        private void TextBoxNameEmployee_TextChanged(object sender, EventArgs e)
-        {
-            Helpers.GridHelper.UpgradeGride(employeeGridView, buttonView, textBoxFindOrDelete, 1);
+                if (e.KeyChar != 8 && (e.KeyChar < 64 || e.KeyChar > 91) && (e.KeyChar > 123 || e.KeyChar < 96) && (e.KeyChar < 48 || e.KeyChar > 57))
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter button 'View'.", "Message");
+                textBoxFindOrDelete.ReadOnly = true;
+            }
         }
     }
 }

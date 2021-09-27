@@ -52,14 +52,14 @@ namespace EmployeeDataBase
             // 
             // buttonView
             // 
-            this.buttonView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
+            this.buttonView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonView.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.buttonView.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.buttonView.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonView.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonView.Location = new System.Drawing.Point(148, 191);
+            this.buttonView.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonView.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.buttonView.Location = new System.Drawing.Point(359, 40);
             this.buttonView.Name = "buttonView";
             this.buttonView.Size = new System.Drawing.Size(63, 23);
             this.buttonView.TabIndex = 30;
@@ -69,21 +69,22 @@ namespace EmployeeDataBase
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
-            this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
-            this.label3.Location = new System.Drawing.Point(8, 154);
+            this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(83)))));
+            this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 32);
+            this.label3.Size = new System.Drawing.Size(410, 35);
             this.label3.TabIndex = 28;
-            this.label3.Text = "Click \"view\" for looking data\r\nof employee.";
+            this.label3.Text = "Click \"view\" for looking data of employee and star-\r\nting work.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // numericAgeEmployee
             // 
             this.numericAgeEmployee.BackColor = System.Drawing.Color.White;
             this.numericAgeEmployee.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.numericAgeEmployee.Location = new System.Drawing.Point(175, 33);
+            this.numericAgeEmployee.Location = new System.Drawing.Point(611, 67);
             this.numericAgeEmployee.Maximum = new decimal(new int[] {
             99,
             0,
@@ -106,40 +107,39 @@ namespace EmployeeDataBase
             // textBoxFindOrDelete
             // 
             this.textBoxFindOrDelete.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxFindOrDelete.Location = new System.Drawing.Point(12, 271);
+            this.textBoxFindOrDelete.Location = new System.Drawing.Point(448, 271);
             this.textBoxFindOrDelete.Name = "textBoxFindOrDelete";
             this.textBoxFindOrDelete.Size = new System.Drawing.Size(199, 23);
             this.textBoxFindOrDelete.TabIndex = 24;
-            this.textBoxFindOrDelete.TextChanged += new System.EventHandler(this.TextBoxFindOrDelete_TextChanged);
             this.textBoxFindOrDelete.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxFindOrDelete_KeyPress);
             // 
             // buttonDelete
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonDelete.Location = new System.Drawing.Point(148, 300);
+            this.buttonDelete.Location = new System.Drawing.Point(584, 306);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(63, 23);
             this.buttonDelete.TabIndex = 22;
             this.buttonDelete.Text = "delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonRemove_Click);
             // 
             // buttonFind
             // 
             this.buttonFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.buttonFind.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.buttonFind.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.buttonFind.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFind.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonFind.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonFind.Location = new System.Drawing.Point(12, 300);
+            this.buttonFind.Location = new System.Drawing.Point(448, 305);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(63, 23);
             this.buttonFind.TabIndex = 21;
@@ -152,8 +152,8 @@ namespace EmployeeDataBase
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
-            this.label2.Location = new System.Drawing.Point(8, 89);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(100)))), ((int)(((byte)(81)))));
+            this.label2.Location = new System.Drawing.Point(448, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(186, 32);
             this.label2.TabIndex = 19;
@@ -164,8 +164,8 @@ namespace EmployeeDataBase
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
-            this.label1.Location = new System.Drawing.Point(8, 12);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(100)))), ((int)(((byte)(81)))));
+            this.label1.Location = new System.Drawing.Point(448, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 16);
             this.label1.TabIndex = 18;
@@ -176,8 +176,8 @@ namespace EmployeeDataBase
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
             this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(53)))), ((int)(((byte)(36)))));
-            this.label4.Location = new System.Drawing.Point(12, 219);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(100)))), ((int)(((byte)(81)))));
+            this.label4.Location = new System.Drawing.Point(448, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(204, 48);
             this.label4.TabIndex = 29;
@@ -187,12 +187,12 @@ namespace EmployeeDataBase
             // 
             this.buttonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(113)))), ((int)(((byte)(70)))));
             this.buttonSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.buttonSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Consolas", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.buttonSave.Location = new System.Drawing.Point(148, 126);
+            this.buttonSave.Location = new System.Drawing.Point(584, 178);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(63, 23);
             this.buttonSave.TabIndex = 20;
@@ -210,7 +210,7 @@ namespace EmployeeDataBase
             "Skoda",
             "BMW",
             "Volkswagen"});
-            this.comboBoxCarEmployee.Location = new System.Drawing.Point(12, 61);
+            this.comboBoxCarEmployee.Location = new System.Drawing.Point(448, 101);
             this.comboBoxCarEmployee.Name = "comboBoxCarEmployee";
             this.comboBoxCarEmployee.Size = new System.Drawing.Size(199, 23);
             this.comboBoxCarEmployee.TabIndex = 17;
@@ -229,12 +229,12 @@ namespace EmployeeDataBase
             this.col3,
             this.col4});
             this.employeeGridView.GridColor = System.Drawing.Color.Black;
-            this.employeeGridView.Location = new System.Drawing.Point(242, 12);
+            this.employeeGridView.Location = new System.Drawing.Point(12, 77);
             this.employeeGridView.Name = "employeeGridView";
             this.employeeGridView.RowHeadersVisible = false;
             this.employeeGridView.RowHeadersWidth = 70;
             this.employeeGridView.RowTemplate.Height = 25;
-            this.employeeGridView.Size = new System.Drawing.Size(427, 317);
+            this.employeeGridView.Size = new System.Drawing.Size(410, 252);
             this.employeeGridView.TabIndex = 16;
             // 
             // col1
@@ -267,11 +267,10 @@ namespace EmployeeDataBase
             // 
             this.textBoxNameEmployee.BackColor = System.Drawing.Color.White;
             this.textBoxNameEmployee.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNameEmployee.Location = new System.Drawing.Point(12, 33);
+            this.textBoxNameEmployee.Location = new System.Drawing.Point(448, 67);
             this.textBoxNameEmployee.Name = "textBoxNameEmployee";
             this.textBoxNameEmployee.Size = new System.Drawing.Size(156, 23);
             this.textBoxNameEmployee.TabIndex = 23;
-            this.textBoxNameEmployee.TextChanged += new System.EventHandler(this.TextBoxNameEmployee_TextChanged);
             this.textBoxNameEmployee.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxNameEmployee_KeyPress);
             // 
             // Form1
@@ -279,7 +278,7 @@ namespace EmployeeDataBase
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(221)))), ((int)(((byte)(119)))));
-            this.ClientSize = new System.Drawing.Size(681, 341);
+            this.ClientSize = new System.Drawing.Size(661, 341);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonView);
             this.Controls.Add(this.label3);

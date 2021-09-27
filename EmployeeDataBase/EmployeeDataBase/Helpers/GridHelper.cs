@@ -1,16 +1,15 @@
 ﻿using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace EmployeeDataBase.Helpers
 {
     public static class GridHelper
     {
-        public static void InitializationGrid(DataGridView employeeGridView, TextBox textBoxNameEmployee)
+        public static void Initialization(DataGridView employeeGridView, TextBox textBoxNameEmployee)
         {
             try
             {
-                DataBaseManager.OpenDB(employeeGridView);
+                DataBaseManager.Open(employeeGridView);
 
                 if (employeeGridView.Rows.Count == 1 && string.IsNullOrEmpty(textBoxNameEmployee.Text))
                 {
@@ -23,7 +22,7 @@ namespace EmployeeDataBase.Helpers
             }
         }
 
-        public static void FillingGrid(DataGridView employeeGridView, int idEmployee, string nameEmployee, int ageEmployee, string carEmployee)
+        public static void Filling(DataGridView employeeGridView, int idEmployee, string nameEmployee, int ageEmployee, string carEmployee)
         {
             int rowNumber = employeeGridView.Rows.Add();
 
@@ -68,20 +67,10 @@ namespace EmployeeDataBase.Helpers
             return checkValue;
         }
 
-        public static void UpgradeGride(DataGridView employeeGridView, Button buttonView, TextBox textBoxFindOrDelete, int checkValue)
+        public static void Upgrade(Button buttonView, TextBox textBoxFindOrDelete)
         {
-            if (checkValue == 1)
-            {
-                if (employeeGridView.Rows.Count == 1)
-                {
-                    buttonView.PerformClick();
-                }
-            }
-            else if (checkValue == 0)
-            {
                 textBoxFindOrDelete.Clear();
                 buttonView.PerformClick();
-            }
         }
     }
 }

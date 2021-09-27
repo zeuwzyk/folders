@@ -6,7 +6,7 @@ namespace EmployeeDataBase.Helpers
 {
     public static class DataBaseManager
     {
-        public static void OpenDB(DataGridView employeeGridView)
+        public static void Open(DataGridView employeeGridView)
         {
             using (DataBaseOpenSave db = new DataBaseOpenSave())
             {
@@ -14,19 +14,19 @@ namespace EmployeeDataBase.Helpers
 
                 foreach (DataEmployee de in employee)
                 {
-                    GridHelper.FillingGrid(employeeGridView, de.Id, de.Name, de.Age, de.Car);
+                    GridHelper.Filling(employeeGridView, de.Id, de.Name, de.Age, de.Car);
                 }
             }
         }
 
-        public static void SaveDB(DataGridView employeeGridView, string nameEmployee, int ageEmployee, string carEmployee)
+        public static void Save(DataGridView employeeGridView, string nameEmployee, int ageEmployee, string carEmployee)
         {
             int idEmployee;
 
             using (DataBaseOpenSave db = new DataBaseOpenSave())
             {
-               // using (var transaction = db.Database.BeginTransaction())
-               // {
+                using (var transaction = db.Database.BeginTransaction())
+                {
                     if (employeeGridView.Rows.Count == 1)
                     {
                         idEmployee = 0;
@@ -39,22 +39,22 @@ namespace EmployeeDataBase.Helpers
 
                     DataEmployee employee = new DataEmployee
                     {
-                        //   Id = idEmployee + 1,//не устанавливать значение, может сработать, якобы //IDENTITY(1,1)
+                        Id = idEmployee + 1,
                         Name = nameEmployee,
                         Age = ageEmployee,
                         Car = carEmployee
                     };
 
-                   // db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees ON;");//читануть//протестить
+                    db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees ON;");
                     db.Employees.Add(employee);
                     db.SaveChanges();
-                   // db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees OFF;");
-                   // transaction.Commit();
-                //}
+                    db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Employees OFF;");
+                    transaction.Commit();
+                }
             }
         }
 
-        public static void DeleteFromBD(DataGridView employeeGridView, TextBox textBoxFindOrDelete, int checkValue)
+        public static void Remove(DataGridView employeeGridView, TextBox textBoxFindOrDelete, int checkValue)
         {
             checkValue = GridHelper.FindInformation(employeeGridView, checkValue, textBoxFindOrDelete.Text);
 
