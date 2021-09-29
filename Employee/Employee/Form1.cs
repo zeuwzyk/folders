@@ -156,6 +156,9 @@ namespace Employee
 
             comboBoxFilter.SelectedIndex = -1;
             textBoxFilter.Clear();
+
+            comboBoxFilter.Enabled = true;
+            textBoxFilter.Enabled = true;
         }
 
         private void TextBoxNameEmployee_KeyPress(object sender, KeyPressEventArgs e)
@@ -204,11 +207,21 @@ namespace Employee
                 {
                     e.Handled = true;
                 }
+
+                comboBoxFilter.Enabled = false;
             }
             else
             {
                 MessageBox.Show("Please, enter button 'View'.", "Message");
                 textBoxFilter.ReadOnly = true;
+            }
+        }
+
+        private void ComboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                if (comboBoxFilter.SelectedIndex != -1)
+            {
+                textBoxFilter.Enabled = false;
             }
         }
     }

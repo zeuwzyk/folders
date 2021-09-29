@@ -320,6 +320,7 @@ namespace Employee
             this.comboBoxFilter.Name = "comboBoxFilter";
             this.comboBoxFilter.Size = new System.Drawing.Size(168, 23);
             this.comboBoxFilter.TabIndex = 46;
+            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.ComboBoxFilter_SelectedIndexChanged);
             // 
             // label5
             // 
